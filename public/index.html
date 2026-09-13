@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat App</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <!-- ---------- Auth screen ---------- -->
+    <section id="auth-screen" class="screen">
+      <div class="auth-card">
+        <h1>Chat App</h1>
+        <div class="tabs">
+          <button class="tab-btn active" data-tab="login">Login</button>
+          <button class="tab-btn" data-tab="register">Register</button>
+        </div>
+
+        <form id="login-form" class="auth-form">
+          <input type="email" id="login-email" placeholder="Email" required />
+          <input type="password" id="login-password" placeholder="Password" required />
+          <button type="submit">Login</button>
+        </form>
+
+        <form id="register-form" class="auth-form hidden">
+          <input type="text" id="register-username" placeholder="Username" required />
+          <input type="email" id="register-email" placeholder="Email" required />
+          <input type="password" id="register-password" placeholder="Password" required />
+          <button type="submit">Create account</button>
+        </form>
+
+        <p id="auth-error" class="error"></p>
+      </div>
+    </section>
+
+    <!-- ---------- Chat screen ---------- -->
+    <section id="chat-screen" class="screen hidden">
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <span id="me-username"></span>
+          <button id="logout-btn" title="Logout">⏻</button>
+        </div>
+        <input type="text" id="user-search" placeholder="Search users..." />
+        <ul id="user-list"></ul>
+      </aside>
+
+      <main class="chat-main">
+        <div id="chat-header" class="chat-header">Select a conversation</div>
+        <div id="messages" class="messages"></div>
+        <div id="typing-indicator" class="typing-indicator"></div>
+        <form id="message-form" class="message-form hidden">
+          <input type="text" id="message-input" placeholder="Type a message..." autocomplete="off" />
+          <button type="submit">Send</button>
+        </form>
+      </main>
+    </section>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/main.js"></script>
+  </body>
+</html>
